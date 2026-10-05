@@ -28,3 +28,25 @@ The implementation repo must persist, at minimum:
 Before a phase exits, run **P0-T05 / the fresh-agent handoff test**: a fresh implementation-agent session with repo access but no prior coordinator chat must be able to identify the active phase, current task, applicable requirement/test IDs, latest verification status, and blockers without owner relay.
 
 Owner intervention is reserved for credentials/permissions, paid-service approval, unresolved product decisions, external-account actions, or blockers that genuinely require human judgment.
+
+
+## Phase 0 bootstrap (Python 3.12, Git)
+Authenticate Git with repository access using your approved credential manager. No API keys are needed. From a new directory:
+
+```sh
+git clone https://github.com/focus-on-the-code/AI_Macro_Thesis_Monitor.git
+cd AI_Macro_Thesis_Monitor
+git switch codex/phase-0-setup
+python3.12 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m monitor
+python -m unittest discover -s tests -v
+python -m ruff check .
+python scripts/validate_phase0.py
+python scripts/scan_secrets.py --history
+```
+
+Requirements pin all direct/transitive Phase 0 tools. No application service is connected. Windows activation: `.venv\Scripts\activate`. Use `python` for venv creation if that command is Python 3.12. Scan output is redacted; never paste a suspected credential. The custom scanner is heuristic (key prefixes/private keys/credential assignments), so review detections securely and supplement with an approved comprehensive scanner before declaring history clean. `python scripts/scan_secrets.py` scans only current files, never substitutes for the full-history test.
+
+See `docs/governance.md` for owner review and the literal-false hosted CI gate; local checks do not count as a hosted CI pass. See `docs/verification/phase-0-report.md` for actual results and blockers. Schema scope validates the whole build-spec top-level structure and strict panel/metric/page shape; untouched future-phase payloads are preserved by source hashes. Cross-document checks compare every panel metric definition and ticker mapping directly to the PRD. Formula details remain explicitly TBD in `registry/formula-inventory.json` and `docs/formula-freeze.md`.

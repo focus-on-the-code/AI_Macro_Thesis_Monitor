@@ -1,0 +1,119 @@
+{
+  "phase": 0,
+  "hosted_actions_enabled": false,
+  "zero_overage_verified": false,
+  "services": [
+    {
+      "id": "market_data",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "premium_news",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "llm_api",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "hosting",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "object_storage",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "actions_overages",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "paid_runners",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "fred_alfred",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "treasury",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "sec_edgar",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "bea",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "bls",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "census",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "eia",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "ai_usage_proxy",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    },
+    {
+      "id": "iso_rto",
+      "provider": "TBD",
+      "enabled": false,
+      "approval": "APPROVAL REQUIRED",
+      "owner_approval_ref": null
+    }
+  ]
+}

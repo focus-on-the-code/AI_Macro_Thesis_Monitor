@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "product",
+    "pages",
+    "principles",
+    "agent_coordination",
+    "panels",
+    "requirements",
+    "phases",
+    "source_policy",
+    "architecture",
+    "mvp_done"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "product": {
+      "type": "object"
+    },
+    "pages": {
+      "const": [
+        "Dashboard",
+        "Evidence",
+        "About",
+        "Definitions & Methodology"
+      ]
+    },
+    "principles": {
+      "type": "array"
+    },
+    "agent_coordination": {
+      "type": "object"
+    },
+    "panels": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "question",
+          "purpose",
+          "metrics",
+          "tickers",
+          "sources",
+          "interpretation_requirement"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "V1",
+              "V2",
+              "V3",
+              "V4",
+              "V5",
+              "V6",
+              "V7"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sources": {
+            "type": "string",
+            "minLength": 1
+          },
+          "interpretation_requirement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metrics": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "definition"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "definition": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "tickers": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "requirements": {
+      "type": "array"
+    },
+    "phases": {
+      "type": "array"
+    },
+    "source_policy": {
+      "type": "object"
+    },
+    "architecture": {
+      "type": "object"
+    },
+    "mvp_done": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,425 @@
+[
+  {
+    "formula_id": "V1-F01",
+    "panel_id": "V1",
+    "metric": "Comparable AI workload price index",
+    "definition": "Cost of a fixed workload: 1,000,000 input tokens + 250,000 output tokens for a maintained basket of comparable models; each model and basket are also shown separately. Index = current basket cost / base-date basket cost x 100.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V1-F02",
+    "panel_id": "V1",
+    "metric": "Observed token volume index",
+    "definition": "Observed tokens from approved public usage proxies, normalized to 100 at the base date. Always labeled as sample/proxy, never market-wide volume.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V1-F03",
+    "panel_id": "V1",
+    "metric": "Open-weight share",
+    "definition": "Open-weight observed tokens / total observed tokens x 100.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V1-F04",
+    "panel_id": "V1",
+    "metric": "Frontier/proprietary share",
+    "definition": "Approved frontier/proprietary observed tokens / total observed tokens x 100.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V1-F05",
+    "panel_id": "V1",
+    "metric": "Demand elasticity proxy",
+    "definition": "% change in observed token volume / absolute % decline in effective workload price over the same interval. Optional and explicitly labeled as a proxy because model mix and workload quality change.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F01",
+    "panel_id": "V2",
+    "metric": "TTM capex",
+    "definition": "Sum of the most recent four quarters of purchases of property/equipment or the company-specific capex definition; store raw XBRL tag and reconciliation.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F02",
+    "panel_id": "V2",
+    "metric": "TTM free cash flow",
+    "definition": "TTM operating cash flow - TTM capex. Use the same capex definition consistently and show the components.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F03",
+    "panel_id": "V2",
+    "metric": "Capex growth",
+    "definition": "Current TTM capex / prior-year TTM capex - 1.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F04",
+    "panel_id": "V2",
+    "metric": "Capex coverage",
+    "definition": "TTM operating cash flow / TTM capex.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F05",
+    "panel_id": "V2",
+    "metric": "FCF margin",
+    "definition": "TTM free cash flow / TTM revenue.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F06",
+    "panel_id": "V2",
+    "metric": "Interest coverage",
+    "definition": "TTM EBIT / TTM interest expense where both are comparable; otherwise display N/A with explanation.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F07",
+    "panel_id": "V2",
+    "metric": "Debt change",
+    "definition": "Current total debt - prior-year total debt; separately display disclosed new debt issuance when identifiable.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F08",
+    "panel_id": "V2",
+    "metric": "Concentration",
+    "definition": "Disclosed customer concentration metrics only. If a percentage is only a secondary estimate, mark it ESTIMATE and do not blend into a verified company calculation.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V2-F09",
+    "panel_id": "V2",
+    "metric": "Off-balance-sheet exposure",
+    "definition": "Disclosed lease commitments, guarantees, VIE/SPV maximum loss exposure and similar items. Store source filing section/page and whether standardized XBRL is available.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F01",
+    "panel_id": "V3",
+    "metric": "2-year Treasury yield",
+    "definition": "Official daily 2Y par/constant maturity yield.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F02",
+    "panel_id": "V3",
+    "metric": "10-year Treasury yield",
+    "definition": "Official daily 10Y par/constant maturity yield.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F03",
+    "panel_id": "V3",
+    "metric": "30-year Treasury yield",
+    "definition": "Official daily 30Y par/constant maturity yield.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F04",
+    "panel_id": "V3",
+    "metric": "2s10s spread",
+    "definition": "(10Y yield - 2Y yield) x 100 basis points.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F05",
+    "panel_id": "V3",
+    "metric": "10Y real yield",
+    "definition": "Official Treasury/FRED real yield series; no synthetic substitution if the official observation is unavailable.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F06",
+    "panel_id": "V3",
+    "metric": "High-yield OAS",
+    "definition": "Approved FRED credit-spread series.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F07",
+    "panel_id": "V3",
+    "metric": "Investment-grade OAS",
+    "definition": "Approved FRED credit-spread series.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V3-F08",
+    "panel_id": "V3",
+    "metric": "Broad dollar / approved USD index",
+    "definition": "Use an approved public series; explicitly distinguish broad Fed dollar index from market DXY if both are shown.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F01",
+    "panel_id": "V4",
+    "metric": "Debt held by the public",
+    "definition": "Latest Treasury Fiscal Data debt_held_public_amt.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F02",
+    "panel_id": "V4",
+    "metric": "Rolling-12-month deficit",
+    "definition": "Sum of the most recent 12 months of federal receipts minus outlays using Treasury/BEA-approved series; exact source and sign convention documented.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F03",
+    "panel_id": "V4",
+    "metric": "Rolling-12-month net interest",
+    "definition": "Sum of the most recent 12 months of net interest outlays from the approved fiscal source.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F04",
+    "panel_id": "V4",
+    "metric": "Net interest / receipts",
+    "definition": "Rolling-12-month net interest / rolling-12-month federal receipts.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F05",
+    "panel_id": "V4",
+    "metric": "Debt / GDP",
+    "definition": "Debt held by the public / nominal GDP, aligned to the latest comparable quarter; show vintage dates.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F06",
+    "panel_id": "V4",
+    "metric": "10Y/30Y auction bid-to-cover",
+    "definition": "Published bid-to-cover. Also show deviation from trailing 12 comparable auctions: current minus median.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V4-F07",
+    "panel_id": "V4",
+    "metric": "Indirect bidder share",
+    "definition": "Indirect bidder accepted / total accepted x 100 for comparable auctions, when available.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V5-F01",
+    "panel_id": "V5",
+    "metric": "Business AI adoption",
+    "definition": "Census BTOS percentage of employer businesses reporting current AI use; show total, sector and firm-size views where available.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V5-F02",
+    "panel_id": "V5",
+    "metric": "Expected AI adoption",
+    "definition": "BTOS share expecting AI use in the next six months.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V5-F03",
+    "panel_id": "V5",
+    "metric": "Labor productivity",
+    "definition": "BLS nonfarm business labor productivity; show quarterly annualized and year-over-year where available.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V5-F04",
+    "panel_id": "V5",
+    "metric": "Output per hour",
+    "definition": "BLS measure aligned with labor productivity reporting.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V5-F05",
+    "panel_id": "V5",
+    "metric": "Software / IP investment",
+    "definition": "BEA real private fixed investment in software/intellectual property using documented table/line identifiers.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V5-F06",
+    "panel_id": "V5",
+    "metric": "Information-processing equipment investment",
+    "definition": "BEA real investment series where available.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V6-F01",
+    "panel_id": "V6",
+    "metric": "U.S. electricity demand",
+    "definition": "Approved EIA hourly/daily demand series aggregated to a documented interval; show YoY comparison.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V6-F02",
+    "panel_id": "V6",
+    "metric": "Commercial/industrial electricity price",
+    "definition": "EIA retail price series, YoY and trailing trend.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V6-F03",
+    "panel_id": "V6",
+    "metric": "Henry Hub natural gas",
+    "definition": "Approved EIA/FRED/market series; document source and frequency.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V6-F04",
+    "panel_id": "V6",
+    "metric": "Brent and WTI",
+    "definition": "Approved market/EIA series; distinguish spot/futures methodology.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V6-F05",
+    "panel_id": "V6",
+    "metric": "Regional grid load",
+    "definition": "PJM/ERCOT or other approved public grid data for major data-center regions when feasible.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F01",
+    "panel_id": "V7",
+    "metric": "Unemployment rate",
+    "definition": "BLS headline unemployment rate with release/vintage status.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F02",
+    "panel_id": "V7",
+    "metric": "Nonfarm payroll change",
+    "definition": "Monthly payroll change with revisions retained.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F03",
+    "panel_id": "V7",
+    "metric": "Initial unemployment claims",
+    "definition": "Approved Department of Labor/FRED weekly series.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F04",
+    "panel_id": "V7",
+    "metric": "Job openings",
+    "definition": "BLS JOLTS openings level/rate.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F05",
+    "panel_id": "V7",
+    "metric": "Average weekly hours",
+    "definition": "BLS total private / relevant-sector hours.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F06",
+    "panel_id": "V7",
+    "metric": "Wage growth",
+    "definition": "Average hourly earnings YoY and/or ECI, source clearly labeled.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  },
+  {
+    "formula_id": "V7-F07",
+    "panel_id": "V7",
+    "metric": "Sector employment",
+    "definition": "Information; Professional and Business Services; data-processing/hosting or other selected AI-exposed industries where robust series exist.",
+    "definition_status": "FROZEN_V0.91",
+    "implementation_status": "TBD",
+    "unresolved": "TBD: exact source/series mapping, units, missing-data policy, and implementation parameters before the applicable implementation phase."
+  }
+]
