@@ -4,7 +4,7 @@ Version 0.91 | October 4, 2026
 
 This bundle contains the approved pre-build specification for the AI / Macro Thesis Monitor.
 
-## Files
+## Files  
 - `AI_Macro_Thesis_Monitor_PRD_v0.91.docx` - human-readable PRD
 - `AI_Macro_Thesis_Monitor_PRD_v0.91.md` - LLM/agent-friendly PRD
 - `AI_Macro_Thesis_Monitor_Agent_Build_Spec_v0.91.yaml` - machine-readable panels, requirements, roadmap, coordination contract and tests
