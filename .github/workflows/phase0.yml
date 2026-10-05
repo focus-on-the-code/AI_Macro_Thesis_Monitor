@@ -5,8 +5,6 @@ permissions:
   contents: read
 jobs:
   phase0:
-    # Literal false: no runner can start before reviewed zero-overage evidence.
-    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

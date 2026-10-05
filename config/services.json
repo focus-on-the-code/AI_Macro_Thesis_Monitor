@@ -1,7 +1,7 @@
 {
   "phase": 0,
-  "hosted_actions_enabled": false,
-  "zero_overage_verified": false,
+  "hosted_actions_enabled": true,
+  "zero_overage_verified": true,
   "services": [
     {
       "id": "market_data",

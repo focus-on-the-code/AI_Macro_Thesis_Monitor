@@ -1,49 +1,52 @@
 # Phase 0 report
-Status: INITIAL ASSESSMENT — NOT COMPLETE. Date: 2026-10-05 UTC.
-Baseline: a51687f60317dd43577982ab6df4b3b79756481c.
-Evidence: GitHub repository metadata, recursive main tree, branch metadata, full README/PRD/YAML reads, full available JPEG image review.
+Status: VERIFICATION IN PROGRESS — EXIT GATE CLOSED. Date: 2026-10-05 UTC.
+Verified baseline: `9c8e9fd40a20318c9c761d7bb3623696e69d016f`.
+
+## Owner-confirmed controls
+
+- Repository visibility: public, explicitly approved by owner.
+- Branch protection: GitHub reports `main` as protected. Owner configured pull-request review, one approval, no force pushes/deletions, and no bypass.
+- GitHub Actions: owner confirmed a $0 budget/overage limit. PR CI is enabled with read-only contents permission.
+- No paid API, hosting, data, news, LLM, object-storage, paid runner, deployment, collector, or Phase 1 work was enabled.
 
 ## Deliverables
-| Deliverable | Initial finding | Required action |
+
+| Deliverable | Status | Evidence |
 |---|---|---|
-| Private repo + protection + CODEOWNERS/review | Private PASS; main protected=false; owner policy absent | Implement policy; obtain enforced protection evidence |
-| README and PRD committed | PASS | Preserve sources; extend bootstrap instructions |
-| Python requirements/lockfile | MISSING | Implement |
-| Secrets variable-name template | MISSING | Implement and scan |
-| Decision log: market, visibility, retention | MISSING initially; coordinator now records explicit decisions/TBDs | Implement configuration consistent with log |
-| Coordination files and verification directory | MISSING initially; created by coordinator | Keep current; fresh-agent verify |
-| PR lint/test CI skeleton | MISSING | Implement; verify no-overage controls before hosted execution |
+| Repository governance | PASS, pending CI check selection | `main` reports protected; `.github/CODEOWNERS`; `docs/governance.md` |
+| Source-of-truth documents | PASS | README, v0.91 PRD, v0.91 build spec, reviewed JPEG |
+| Python setup | PASS | Pinned `requirements.txt`, minimal module/test, README bootstrap |
+| Secrets template | PASS | `.env.example` contains names with empty values only |
+| Decision log | PASS | `docs/decision_log.md` D000–D010 |
+| Coordination artifacts | PASS | phase status, handoff, verification report, decision log |
+| PR CI skeleton | ENABLED; run pending | `.github/workflows/phase0.yml` |
 
-## Success / exit criteria
-| Criterion | Status / evidence |
-|---|---|
-| Clone/bootstrap from documented instructions | NOT RUN; baseline README lacks bootstrap and dependencies |
-| No secrets in git history | NOT VERIFIED; full-history automated scan pending |
-| Seven panel definitions/formula IDs frozen or explicitly TBD | PARTIAL; V1–V7 definitions exist; formula-ID/status inventory absent |
-| Potential-cost services tagged APPROVAL REQUIRED | PARTIAL; PRD has policy; enforceable inventory/configuration absent; account spending controls unverified |
-| CI passes on skeleton | NOT RUN; workflow absent |
-| Fresh implementer reconstructs state without chat/relay | NOT RUN; coordination files just created |
+## Test evidence
 
-## Tests
-| Test | Initial status | Evidence needed |
+| Test | Status | Result |
 |---|---|---|
-| P0-T01 Fresh-clone bootstrap | NOT RUN / setup missing | clean clone + dependency installation + hello test from README |
-| P0-T02 Secret scan | NOT RUN | full-history automated scan + manual .env example check; avoid leaking detections |
-| P0-T03 Cost gate | NOT RUN | inspect resulting config for enabled paid providers; provider TBDs explicit |
-| P0-T04 Spec integrity | NOT RUN | schema validation + PRD/YAML V1–V7/formula/page comparison |
-| P0-T05 Fresh-agent handoff | NOT RUN | fresh repo-only agent's independent reconstruction and comparison |
+| P0-T01 Fresh-clone bootstrap | PASS | Fresh public cloud clone at `9c8e9fd`; non-shallow repository; Python 3.12 venv; pinned install; `python -m monitor`; unittest; Ruff all succeeded. |
+| P0-T02 Secret scan | PASS with documented heuristic limit | `python scripts/scan_secrets.py --history` scanned 29 historical blobs; zero findings. Scanner covers common key prefixes/private keys/credential assignments; it is not a guarantee against every possible secret format. `.env.example` manually verified as names-only. |
+| P0-T03 Cost gate | PASS | All 16 providers remain disabled/TBD and APPROVAL REQUIRED; no owner approval reference; owner-confirmed Actions $0 limit; no paid service enabled. |
+| P0-T04 Spec integrity | PASS | Schema, seven panels, four pages, 47 metric IDs/definitions, and ticker mappings validated. Incorrect baseline hashes were corrected without changing PRD or YAML. |
+| P0-T05 Fresh-agent handoff | PENDING FINAL REPEAT | Initial independent reconstruction passed at commit `7023f7`; repeat against this closeout branch is required. |
 
-## Loop and scope
-Build: source bundle exists; coordination artifacts prepared.
-Assess: complete initial Phase 0 deliverable/criterion/test inventory above.
-Fix: P0-SETUP-001 assigned for implementation.
-Verify: pending actual implementation evidence.
-Phase Report: this report is interim, not an acceptance claim.
-Exit Gate: CLOSED; Phase 1 forbidden; owner approval absent.
+## Commands and output summary
 
-## Blockers and limitations
-- Enforced branch protection absent; connector does not expose administration writes. Do not treat CODEOWNERS alone as protection.
-- Account billing/Actions quota and zero-overage enforcement unverified. No paid service enabled by coordinator.
-- PNG binary reading failed. Owner-provided JPEG reviewed; written PRD/YAML override illustrative discrepancies (D006).
-- No bootstrap, full-history secret-scan, schema-test or CI success evidence exists yet.
-- No direct external Codex-session dispatch tool has been discovered; do not claim an issue alone launches Codex. An equivalent implementation agent may be delegated under PRD 17.1, with all work persisted here.
+```text
+git clone https://github.com/focus-on-the-code/AI_Macro_Thesis_Monitor.git
+git rev-parse --is-shallow-repository  -> false
+python -m pip install -r requirements.txt  -> success
+python -m monitor  -> AI / Macro Thesis Monitor: Phase 0 setup ready
+python -m unittest discover -s tests -v  -> OK (1 test)
+python -m ruff check .  -> All checks passed
+python scripts/validate_phase0.py  -> P0-T04 PASS; P0-T03 PASS
+python scripts/scan_secrets.py --history  -> Scanned 29 blobs; findings=0
+```
+
+## Remaining exit work
+
+1. Merge this closeout PR after review.
+2. Confirm the PR CI workflow succeeds, then select its check as required in the branch rule.
+3. Run and persist a fresh-agent P0-T05 reconstruction of the merged state.
+4. Owner explicitly approves the Phase 0 exit gate. Until then, Phase 1 remains unauthorized.

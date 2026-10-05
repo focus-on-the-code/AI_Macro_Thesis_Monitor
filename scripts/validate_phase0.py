@@ -40,7 +40,7 @@ def validate():
     print(f'P0-T04 PASS: schema, original hashes, 7 panels, 4 pages, {len(inventory)} metric definitions/formula IDs and ticker mappings')
     config = json.loads((ROOT / 'config/services.json').read_text())
     assert config['phase'] == 0
-    assert config['hosted_actions_enabled'] is False and config['zero_overage_verified'] is False
+    assert config['hosted_actions_enabled'] is True and config['zero_overage_verified'] is True
     ids = {x['id'] for x in config['services']}
     assert {'market_data', 'premium_news', 'llm_api', 'hosting', 'object_storage',
             'actions_overages', 'paid_runners'} <= ids
@@ -51,10 +51,10 @@ def validate():
     workflow = yaml.load((ROOT / '.github/workflows/phase0.yml').read_text(), Loader=yaml.BaseLoader)
     assert set(workflow['on']) == {'pull_request'}
     assert workflow['permissions'] == {'contents': 'read'}
-    assert all(job['if'] == '${{ false }}' for job in workflow['jobs'].values())
+    assert all(job.get('if') is None for job in workflow['jobs'].values())
     assert all(re.fullmatch(r'[A-Z_]+=', line)
                for line in (ROOT / '.env.example').read_text().splitlines())
-    print('P0-T03 PASS: all 16 providers disabled/TBD; hosted job literal-false; empty secrets template')
+    print('P0-T03 PASS: all 16 providers disabled/TBD; $0 Actions limit confirmed; empty secrets template')
 
 
 if __name__ == '__main__':
