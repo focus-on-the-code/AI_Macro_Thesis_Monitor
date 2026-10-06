@@ -50,3 +50,6 @@ The owner works through cloud/web tools and does not plan to push from a laptop.
 
 ## D014 — Phase 1 exit
 2026-10-06 owner approved Phase 1 closure after PR #6 merged. Hosted browser QA had passed on Actions run 37445064980 (run #10), with artifact 11402518825 retaining screenshots and logs. Phase 1 delivered the fixture-backed Streamlit UI skeleton and remains fixture-only; Phase 2 requires a separate owner authorization and scoped handoff.
+
+## D015 — Phase 2 authorization
+2026-10-06 owner authorized Phase 2: provenance, calculations and methodology foundation. Scope is limited to P2-FOUNDATION-001 and P2-T01–P2-T05. No live collectors, paid services, accounts, credentials, deployment or unapproved methodology changes are authorized.
