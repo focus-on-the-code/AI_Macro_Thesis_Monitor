@@ -1,12 +1,10 @@
 # Phase status
 Updated: 2026-10-06 UTC.
-Active phase: **0 — Project setup, approvals and specification freeze**.
-Status: IN PROGRESS; exit gate CLOSED. Phase 1 is NOT AUTHORIZED.
-Coordinator: ChatGPT Work. Implementer: Codex/equivalent implementation agent.
-Source baseline: a3018fd786992be3575fb32f5c86d1c1c8ef9079.
-Read AGENTS.md, docs/phase-status.md, docs/handoffs/current-task.md, then only the relevant PRD/build-spec sections.
-Current task: **P0-FIX-002 — reconcile handoff artifacts and verify fresh-agent reconstruction**. Tests: P0-T01–P0-T05. Requirements: FR-001, FR-003, FR-009, FR-015, FR-016, FR-017, FR-023.
-Latest verification: P0-T01–P0-T04 passed in a fresh non-shallow cloud clone; full-history heuristic secret scan had zero findings. Enabled PR CI subsequently passed on PR #4 and phase0 is selected as a required main status check. A fresh repository-only agent reconstruction of these reconciled artifacts passed: it identified Phase 0, P0-FIX-002, the applicable IDs, prior evidence and the remaining exit conditions without private chat context.
-Resolved owner decisions: public visibility accepted; main protected=true; Actions $0 overage limit confirmed.
-Blockers: this remediation PR must pass its required phase0 check and be merged; then explicit owner approval is required for the Phase 0 exit gate.
-No paid services, deployment, live data collectors, UI panels or Phase 1 work authorized.
+Active phase: **1 — UI skeleton and navigation**. Status: IN PROGRESS; exit gate CLOSED.
+Phase 0 closed by owner approval on 2026-10-06.
+Current task: **P1-UI-001 — fixture-backed Streamlit dashboard shell** on `codex/phase-1-ui-skeleton`.
+Requirements: FR-001–FR-005, FR-008–FR-011, FR-014–FR-015, FR-021–FR-023. Tests: P1-T01–P1-T06.
+Latest implementation: `9178775918a6181493aeb03b85a911a8c40c0861` (app, fixture views, seven panels, tests and run instructions). Seven local unittest checks pass; Phase 0 validator and working-tree heuristic scan pass.
+Hosted Phase 1 browser QA passed on Actions run 37445064980 (run #10) at commit 4961c8e. It installed Streamlit/Chromium, rendered the app, exercised all four routes, seven panels/disclosures and stale/unavailable labels, and passed desktop/tablet/mobile overflow checks. Screenshot/log artifact 11402518825 is retained. Ruff binary in this workspace exits 139. Structural tests do not substitute for browser verification.
+Constraints: fixture-only; no live collectors, deployment, paid services, accounts, credentials or methodology changes.
+Next action: coordinator reviews the hosted evidence and presents the Phase 1 exit gate for explicit owner approval; Phase 2 remains unauthorized. See `docs/verification/phase-1-report.md`.

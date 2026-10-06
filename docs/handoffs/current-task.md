@@ -1,20 +1,18 @@
-# P0-FIX-002 — Reconcile Phase 0 handoff artifacts
-Status: READY FOR PR VERIFICATION. Phase 0 only. Read all source files and coordination documents from this repository; no private chat context is needed.
+# P1-UI-001 — Fixture-backed Streamlit dashboard shell
+Status: IMPLEMENTED, VISUAL VERIFICATION PENDING. Phase 1 only; do not begin Phase 2.
 
-## Objective and boundaries
-Resolve the P0-T05 reconstruction finding: all active-task references and pending/completed evidence must agree. Then perform a new fresh-agent reconstruction against these updated artifacts.
-No Phase 1 UI, live collectors, deployment, paid services or account upgrades.
-Use Build → Assess → Fix → Verify → Phase Report → Exit Gate.
-Applicable IDs: FR-001, FR-003, FR-009, FR-015, FR-016, FR-017, FR-023; P0-T01–P0-T05.
+## Objective and scope
+Recreate the approved dashboard hierarchy using local fixtures: Dashboard, Evidence, About and Definitions & Methodology; Current Market & Macro Regime; seven independent V1–V7 panels with internal ticker/proxy rows, chart placeholders, interpretation, source/timing and calculation disclosure. No live data, deployment, accounts, paid services, credentials, investment recommendations, master scores or methodology changes.
 
-## Tasks
-1. Keep docs/phase-status.md, this handoff, and docs/verification/phase-0-report.md aligned on the sole active task: P0-FIX-002.
-2. Record that enabled PR CI passed on PR #4 and that the phase0 check is required on main.
-3. P0-T05 PASS: a fresh agent inspected only this branch through the connected GitHub source and correctly identified Phase 0, P0-FIX-002, the applicable IDs, prior evidence and remaining exit conditions.
-4. Open this PR; its required phase0 check must pass, then merge it.
-5. After merge, present the complete evidence to the owner for an explicit Phase 0 exit decision. A passing test suite does not authorize Phase 1 by itself.
+Requirements: FR-001, FR-002, FR-003, FR-004, FR-005, FR-008, FR-009, FR-010, FR-011, FR-014, FR-015, FR-021, FR-022, FR-023.
+Tests: P1-T01 Navigation; P1-T02 Panel inventory; P1-T03 Ticker proximity; P1-T04 Disclosures; P1-T05 Responsive smoke; P1-T06 Stale/unavailable state.
 
-## Return contract
-Provide branch/commit/PR links, changed files, actual test output, unresolved blockers and exact next task through repository artifacts.
-Owner decisions are limited to genuine permission/account/paid-service/product blockers. No routine owner copy/paste.
-Exit remains CLOSED until all deliverables/criteria pass and owner explicitly approves. A blocked gate does not authorize Phase 1.
+## Implementation handoff
+Branch: `codex/phase-1-ui-skeleton`. Implementation commit: `9178775918a6181493aeb03b85a911a8c40c0861`.
+Files: `app.py`, `pages/`, `monitor/fixtures.py`, `monitor/ui.py`, `tests/test_phase1_ui.py`, `requirements.txt`, `README.md`, and this handoff/status/report.
+Run: `python -m pip install -r requirements.txt && python -m streamlit run app.py` from the repository root in a Python 3.12 environment.
+Local `python -m unittest discover -s tests -v`: 7 tests, OK. Structural checks cover six P1 IDs, but rendered browser checks remain incomplete. Package installation failed because network access to the configured proxy was denied; the available Ruff binary exited 139. No live accounts or services were used.
+
+## Next expected action and blockers
+Hosted browser QA passed: P1-T01, P1-T03, P1-T04 and P1-T05 are verified by run #10; P1-T02 and P1-T06 are covered by structural and rendered checks. Coordinator now reviews the report and obtains explicit owner approval; keep Phase 2 unauthorized. Keep exit gate CLOSED; coordinator reviews verification and obtains explicit owner exit approval. See `docs/verification/phase-1-report.md` for commands/output and limitations.
+Delegation model tier: Tier 2 normal implementation, workhorse/medium reasoning; no subagents used.
