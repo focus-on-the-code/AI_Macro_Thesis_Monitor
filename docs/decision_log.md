@@ -44,3 +44,6 @@ The owner works through cloud/web tools and does not plan to push from a laptop.
 
 ## D012 — Final P0-T05 reconstruction pass
 2026-10-06 a second fresh agent inspected only the reconciled GitHub branch and unambiguously reconstructed Phase 0, P0-FIX-002, all applicable IDs, prior verification and the remaining exit conditions. P0-T05 now passes; the remaining controls are this PR's required CI/merge and the owner's explicit Phase 0 exit approval.
+
+## D013 — Phase 0 exit and Phase 1 authorization
+2026-10-06 owner explicitly closed/approved Phase 0 after the required closeout PR #5 passed CI and merged. Phase 1 is authorized only for the fixture-backed Streamlit UI skeleton defined in P1-UI-001. No Streamlit account, deployment, live data source, paid service, credential or methodology change is authorized.
