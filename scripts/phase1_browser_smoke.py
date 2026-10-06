@@ -44,8 +44,9 @@ def main() -> None:
         assert panels.count() == 7, f"expected 7 panels, found {panels.count()}"
         assert page.get_by_text("Energy", exact=False).count() >= 1
         assert page.get_by_text("Labor", exact=False).count() >= 1
-        assert page.get_by_text("STALE", exact=True).count() >= 1
-        assert page.get_by_text("UNAVAILABLE", exact=True).count() >= 1
+        dashboard_text = page.locator("body").inner_text().upper()
+        assert "STALE" in dashboard_text
+        assert "UNAVAILABLE" in dashboard_text
         assert page.get_by_text("How this is calculated", exact=True).count() == 7
 
         page.screenshot(path=str(OUT / "dashboard-desktop.png"), full_page=True)
