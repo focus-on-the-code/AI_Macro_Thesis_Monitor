@@ -1,20 +1,24 @@
-# P0-FIX-002 — Reconcile Phase 0 handoff artifacts
-Status: READY FOR PR VERIFICATION. Phase 0 only. Read all source files and coordination documents from this repository; no private chat context is needed.
+# P1-UI-001 — Fixture-backed Streamlit dashboard shell
+Status: READY FOR IMPLEMENTATION. Phase 1 only; do not begin Phase 2.
 
 ## Objective and boundaries
-Resolve the P0-T05 reconstruction finding: all active-task references and pending/completed evidence must agree. Then perform a new fresh-agent reconstruction against these updated artifacts.
-No Phase 1 UI, live collectors, deployment, paid services or account upgrades.
+Recreate the approved dashboard information architecture and hierarchy with local fixture data before connecting any live source.
+Build a Streamlit app with Dashboard, Evidence, About, and Definitions & Methodology pages; a Current Market & Macro Regime strip; and seven separate V1–V7 panels. Each panel must contain directly adjacent ticker/proxy rows, a chart placeholder, concise interpretation, calculation disclosure, source/timing metadata, and usable stale/unavailable fixture state.
+Do not add live collectors, deployment, accounts, paid services, credentials, financial recommendations, opaque master scores, or personality-specific threshold markers.
+
+## Applicable requirements and tests
+Requirements: FR-001, FR-002, FR-003, FR-004, FR-005, FR-008, FR-009, FR-010, FR-011, FR-014, FR-015, FR-021, FR-022, FR-023.
+Tests: P1-T01 Navigation; P1-T02 Panel inventory; P1-T03 Ticker proximity; P1-T04 Disclosure controls; P1-T05 Responsive smoke; P1-T06 Stale/unavailable state.
+
+## Expected implementation outputs
+- Pinned free Streamlit dependency and a documented local run command.
+- Fixture module/data covering all seven panel states, including at least one stale and one unavailable state.
+- App/pages/components and tests for page/panel/disclosure/state inventory.
+- Persistent research-not-investment-advice disclosure and basic keyboard/readability/responsive design.
+- Updated Phase 1 report with commands/output, defects/fixes, cost/service changes (expected: none), and gate status.
+
+## Verification and handoff
 Use Build → Assess → Fix → Verify → Phase Report → Exit Gate.
-Applicable IDs: FR-001, FR-003, FR-009, FR-015, FR-016, FR-017, FR-023; P0-T01–P0-T05.
-
-## Tasks
-1. Keep docs/phase-status.md, this handoff, and docs/verification/phase-0-report.md aligned on the sole active task: P0-FIX-002.
-2. Record that enabled PR CI passed on PR #4 and that the phase0 check is required on main.
-3. P0-T05 PASS: a fresh agent inspected only this branch through the connected GitHub source and correctly identified Phase 0, P0-FIX-002, the applicable IDs, prior evidence and remaining exit conditions.
-4. Open this PR; its required phase0 check must pass, then merge it.
-5. After merge, present the complete evidence to the owner for an explicit Phase 0 exit decision. A passing test suite does not authorize Phase 1 by itself.
-
-## Return contract
-Provide branch/commit/PR links, changed files, actual test output, unresolved blockers and exact next task through repository artifacts.
-Owner decisions are limited to genuine permission/account/paid-service/product blockers. No routine owner copy/paste.
-Exit remains CLOSED until all deliverables/criteria pass and owner explicitly approves. A blocked gate does not authorize Phase 1.
+Run the six P1 tests; use a browser/rendered visual check for ticker proximity, disclosures and responsive widths where feasible. Record limitations honestly.
+Before opening a PR, update this task, phase status and docs/verification/phase-1-report.md with the actual branch/commit, results, blockers and next action.
+Delegation model tier: Tier 2 (normal implementation); use the lowest-cost available workhorse model with medium reasoning. Tier 1/low may be used for isolated formatting or routine checks.
