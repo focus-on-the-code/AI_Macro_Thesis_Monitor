@@ -14,7 +14,7 @@ OUT = Path("artifacts/phase1-browser")
 
 def wait_ready(page) -> None:
     page.wait_for_load_state("domcontentloaded")
-    page.locator("text=AI / Macro Thesis Monitor").first.wait_for(timeout=15_000)
+    page.get_by_role("link", name="Dashboard", exact=True).wait_for(timeout=15_000)
 
 
 def no_horizontal_overflow(page) -> None:
