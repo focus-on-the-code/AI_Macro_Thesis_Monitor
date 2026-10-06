@@ -10,7 +10,7 @@ P1-UI-001 fixture-backed Streamlit shell only. Requirements: FR-001–FR-005, FR
 `PYTHONPATH=/workspace/scratch/cae44839325f/phase0-tools python scripts/validate_phase0.py`: **P0-T04/P0-T03 PASS** (schema, seven panels, four pages, 47 formula IDs and ticker mapping; providers disabled).
 `python scripts/scan_secrets.py`: **PASS**, 36 working-tree blobs/files, 0 heuristic findings; not a full-history scan.
 `/workspace/scratch/cae44839325f/phase0-tools/bin/ruff check app.py monitor pages tests`: **not completed**, process exit 139 without output in this runtime.
-`python -m pip install --target /workspace/scratch/cae44839325f/phase1-streamlit --no-deps streamlit==1.39.0`: **blocked**, configured browser-proxy:8889 returned Operation not permitted, so Streamlit could not be installed here.
+`python -m pip install --target /workspace/scratch/cae44839325f/phase1-streamlit --no-deps streamlit==1.39.0`: **blocked**, configured browser-proxy:8889 returned Operation not permitted, so Streamlit could not be installed here. Hosted replacement added: `.github/workflows/phase1-browser.yml` installs pinned Streamlit and Playwright Chromium, starts the app, runs `scripts/phase1_browser_smoke.py`, and uploads screenshots/logs; hosted result pending.
 
 | Test | Local result | Remaining verification |
 | --- | --- | --- |
@@ -20,6 +20,9 @@ P1-UI-001 fixture-backed Streamlit shell only. Requirements: FR-001–FR-005, FR
 | P1-T04 Disclosure controls | Seven expanders emit frozen formula and fixture input/source/timing/revision fields | Expand all seven in a browser. |
 | P1-T05 Responsive smoke | Structural layout uses two-column regime rows and full-width panel containers | Desktop/tablet render and overlap/clipping check pending. |
 | P1-T06 Stale/unavailable | PASS: stale V6, unavailable V7, injected missing V1 retains disclosure and status | Browser visual confirmation useful. |
+
+## Hosted browser verification
+Pending the Actions run for the new `Streamlit browser smoke` check. It must prove route navigation, seven panels/disclosures, stale/unavailable labels and desktop/tablet/mobile overflow behavior before P1-T01/P1-T03/P1-T04/P1-T05 can be marked PASS.
 
 ## Defects, blockers and gate
 One test assertion fixed after the initial failing run. No production runtime defect observed, but rendered behavior cannot be claimed without dependency installation/browser QA. The environment lacks Streamlit, blocks the package index, and its available Ruff executable exits 139. Repeat install/lint in a normal development environment. No cost/service changes; no model-tier exception (Tier 2 workhorse/medium; no subagents). Phase 1 exit remains **CLOSED** until rendered checks pass, defects are addressed, report is updated and owner explicitly approves exit.
