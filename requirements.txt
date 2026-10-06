@@ -6,3 +6,4 @@ referencing==0.36.2
 rpds-py==0.27.1
 typing_extensions==4.15.0
 ruff==0.13.3
+streamlit==1.39.0
