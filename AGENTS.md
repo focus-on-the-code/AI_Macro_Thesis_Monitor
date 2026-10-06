@@ -64,6 +64,12 @@ Do not require the owner to manually copy/paste routine prompts, results, test o
 
 Persist routine handoffs in repository files, commits, pull requests, issues, CI output, or other GitHub artifacts.
 
+## Pull request authority
+
+- ChatGPT may create pull requests for owner review.
+- ChatGPT must not merge a pull request without the owner's explicit approval in the current conversation.
+- After an approved merge, ChatGPT must add the exact PR comment: `merged by ChatGPT.`
+
 ---
 
 ## Required workflow
