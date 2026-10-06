@@ -1,5 +1,5 @@
 # P2-FOUNDATION-001 — Provenance, calculations and methodology foundation
-Status: READY FOR IMPLEMENTATION; Phase 2 exit gate CLOSED.
+Status: IMPLEMENTATION VERIFIED LOCALLY; P2-T01–P2-T05 and CI-equivalent checks pass; Phase 2 exit gate CLOSED pending review.
 
 ## Required first action
 Before reading or modifying any code, the implementation agent must read:
@@ -36,3 +36,6 @@ Tests:
 
 ## Expected outputs
 Implementation code and tests; generated methodology output or renderer; drift/coverage validation; updated README/run instructions if needed; `docs/verification/phase-2-report.md`; updated status and decision log; PR with passing Phase 0 and Phase 2 checks.
+
+## Current verification handoff
+Implementation is on `codex/phase-2-implementation`. All 13 `unittest` tests, Ruff, `scripts/validate_phase0.py`, secret-history scan and `git diff --check` pass. See `docs/verification/phase-2-report.md`. Next: review and close the gate through owner/coordinator approval.
