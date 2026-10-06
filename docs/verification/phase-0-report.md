@@ -1,5 +1,5 @@
 # Phase 0 report
-Status: REMEDIATION IN PROGRESS — EXIT GATE CLOSED. Date: 2026-10-06 UTC.
+Status: VERIFICATION COMPLETE — EXIT GATE CLOSED. Date: 2026-10-06 UTC.
 Verified baseline before this remediation: a3018fd786992be3575fb32f5c86d1c1c8ef9079.
 
 ## Owner-confirmed controls
@@ -18,7 +18,7 @@ Verified baseline before this remediation: a3018fd786992be3575fb32f5c86d1c1c8ef9
 | Python setup | PASS | Pinned requirements.txt, minimal module/test, README bootstrap |
 | Secrets template | PASS | .env.example contains names with empty values only |
 | Decision log | PASS | docs/decision_log.md D000–D011 |
-| Coordination artifacts | FIX IN PROGRESS | P0-T05 found stale/conflicting task/evidence references; P0-FIX-002 reconciles them |
+| Coordination artifacts | PASS | P0-FIX-002 reconciled the status, handoff, report and decision-log evidence; final fresh-agent reconstruction passed |
 | PR CI | PASS | Phase 0 checks / phase0 passed on PR #4; check selected as required on main |
 
 ## Test evidence
@@ -29,7 +29,7 @@ Verified baseline before this remediation: a3018fd786992be3575fb32f5c86d1c1c8ef9
 | P0-T02 Secret scan | PASS with documented heuristic limit | python scripts/scan_secrets.py --history scanned 29 historical blobs; zero findings. Scanner covers common key prefixes/private keys/credential assignments; it is not a guarantee against every possible secret format. .env.example manually verified as names-only. |
 | P0-T03 Cost gate | PASS | All 16 providers remain disabled/TBD and APPROVAL REQUIRED; no owner approval reference; owner-confirmed Actions $0 limit; no paid service enabled. |
 | P0-T04 Spec integrity | PASS | Schema, seven panels, four pages, 47 metric IDs/definitions, and ticker mappings validated. Incorrect baseline hashes were corrected without changing PRD or YAML. |
-| P0-T05 Fresh-agent handoff | FAIL — remediation in progress | Independent reconstruction on 2026-10-06 found inconsistent active-task/evidence wording among coordination artifacts. It correctly retained Phase 0 and its gate, but could not reconstruct a single task unambiguously. P0-FIX-002 must be completed and P0-T05 repeated. |
+| P0-T05 Fresh-agent handoff | PASS | First reconstruction found stale records; P0-FIX-002 reconciled them. A second fresh agent using only the connected GitHub branch identified Phase 0, P0-FIX-002, all applicable IDs, evidence and blockers without private chat context. |
 
 ## Commands and output summary
 
@@ -45,6 +45,5 @@ Verified baseline before this remediation: a3018fd786992be3575fb32f5c86d1c1c8ef9
 
 ## Remaining exit work
 
-1. Repeat P0-T05 in a fresh agent session against the reconciled artifacts and record a PASS.
-2. Confirm this remediation PR's required phase0 check passes and merge it.
-3. Owner explicitly approves the Phase 0 exit gate. Until then, Phase 1 remains unauthorized.
+1. Confirm this remediation PR's required phase0 check passes and merge it.
+2. Owner explicitly approves the Phase 0 exit gate. Until then, Phase 1 remains unauthorized.
