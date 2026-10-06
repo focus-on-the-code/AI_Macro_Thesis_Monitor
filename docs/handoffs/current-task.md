@@ -1,18 +1,38 @@
-# Phase 1 closeout — P1-UI-001
-Status: COMPLETE; Phase 1 exit gate PASSED. Phase 2 is not authorized.
+# P2-FOUNDATION-001 — Provenance, calculations and methodology foundation
+Status: READY FOR IMPLEMENTATION; Phase 2 exit gate CLOSED.
 
-## Completed objective
-P1-UI-001 delivered the fixture-backed Streamlit dashboard shell: Dashboard, Evidence, About, and Definitions & Methodology; Current Market & Macro Regime; seven independent V1–V7 panels with ticker/proxy rows, chart placeholders, interpretation, source/timing and calculation disclosures; and stale/unavailable states.
+## Required first action
+Before reading or modifying any code, the implementation agent must read:
+1. `AGENTS.md`
+2. `docs/phase-status.md`
+3. this file
+Then consult only the Phase 2 sections of `AI_Macro_Thesis_Monitor_Agent_Build_Spec_v0.91.yaml` and the relevant metric definitions in the PRD.
 
-Requirements completed: FR-001, FR-002, FR-003, FR-004, FR-005, FR-008, FR-009, FR-010, FR-011, FR-014, FR-015, FR-021, FR-022, FR-023.
-Tests completed: P1-T01 Navigation; P1-T02 Panel inventory; P1-T03 Ticker proximity; P1-T04 Disclosures; P1-T05 Responsive smoke; P1-T06 Stale/unavailable state.
+## Objective and scope
+Build the transparent foundation before connecting live sources:
+- canonical metric registry with stable IDs, names, units, raw/derived type, formula metadata, source priority and cadence;
+- calculation functions with explicit validation and unit handling;
+- provenance records linking displayed/derived values to raw input IDs, source URL, observed_at, retrieved_at and vintage/revision state;
+- data-quality flags and lineage display usable by the existing UI;
+- Definitions & Methodology content generated from the same registry;
+- CI/test guards preventing registry/code/spec drift.
 
-## Implementation and evidence
-PR #6 merged to `main` at merge commit `7fe81a6618bf8e8fe1a58f67a97d282c0a6acbe9`; implementation commit `9178775918a6181493aeb03b85a911a8c40c0861`.
-Hosted browser QA passed on Actions run 37445064980 (run #10), including all four routes, seven panels/disclosures, stale/unavailable states, and desktop/tablet/mobile overflow checks. Artifact 11402518825 contains screenshots and logs.
-Local structural tests passed. Local Streamlit installation was blocked by the configured proxy, and local Ruff exited 139; hosted browser verification is the authoritative rendering evidence.
+Requirements: FR-003, FR-011, FR-012, FR-013, FR-014, FR-015, FR-018, FR-019, FR-021, FR-022, FR-023.
+Tests:
+- P2-T01 Formula unit tests: normal, zero, negative and missing inputs; explicit divide-by-zero behavior.
+- P2-T02 Lineage round-trip: derived metric traces to all raw inputs and transformations.
+- P2-T03 Registry drift: changing a formula without updating the registry snapshot fails CI.
+- P2-T04 Units: basis points/percent/fraction variants are rejected or explicitly normalized.
+- P2-T05 Methodology completeness: every Dashboard metric has definition, formula or raw-metric label, source and cadence.
 
-## Constraints and next action
-Fixture-only. No live data, deployment, accounts, paid services, credentials, investment recommendations, master scores or methodology changes.
-Next action: wait for a separate owner request authorizing Phase 2 and a new scoped task handoff. Do not begin Phase 2 from this file alone.
-Delegation model tier used: Tier 2 normal implementation, workhorse/medium reasoning; no subagents used.
+## Constraints
+- Read `AGENTS.md` before building; record this in the verification report.
+- Preserve the seven-panel definitions and existing fixture behavior.
+- Do not connect live sources, paid APIs, deployment, accounts or credentials.
+- Do not silently change formulas, source hierarchy, signal logic or economic definitions.
+- Do not create a master score or investment recommendation.
+- Keep changes scoped; prefer small composable modules and tests.
+- Use Tier 2 normal implementation reasoning for the main build. Use Tier 1/low reasoning for routine scans/docs; escalate only for architecture, security, methodology ambiguity, or repeated verification failure.
+
+## Expected outputs
+Implementation code and tests; generated methodology output or renderer; drift/coverage validation; updated README/run instructions if needed; `docs/verification/phase-2-report.md`; updated status and decision log; PR with passing Phase 0 and Phase 2 checks.
