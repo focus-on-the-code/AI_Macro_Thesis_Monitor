@@ -40,7 +40,13 @@ def main() -> None:
         page.goto(args.base_url)
         wait_ready(page)
 
-        dashboard_text = page.locator("body").inner_text()
+        dashboard_text = ""
+        for _ in range(20):
+            dashboard_text = page.locator("body").inner_text()
+            if all(f"V{panel_id} —" in dashboard_text for panel_id in range(1, 8)):
+                break
+            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            page.wait_for_timeout(500)
         for panel_id in range(1, 8):
             assert f"V{panel_id} —" in dashboard_text, f"missing V{panel_id} panel"
         assert page.get_by_text("Energy", exact=False).count() >= 1
