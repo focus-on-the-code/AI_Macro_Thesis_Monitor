@@ -14,5 +14,5 @@ Run: `python -m pip install -r requirements.txt && python -m streamlit run app.p
 Local `python -m unittest discover -s tests -v`: 7 tests, OK. Structural checks cover six P1 IDs, but rendered browser checks remain incomplete. Package installation failed because network access to the configured proxy was denied; the available Ruff binary exited 139. No live accounts or services were used.
 
 ## Next expected action and blockers
-Inspect the hosted browser-QA result and uploaded screenshots; if it fails, fix the defect and rerun the six P1 tests. P1-T01/T03/T04/T05 remain pending until the hosted check passes. Keep exit gate CLOSED; coordinator reviews verification and obtains explicit owner exit approval. See `docs/verification/phase-1-report.md` for commands/output and limitations.
+Hosted browser QA passed: P1-T01, P1-T03, P1-T04 and P1-T05 are verified by run #10; P1-T02 and P1-T06 are covered by structural and rendered checks. Coordinator now reviews the report and obtains explicit owner approval; keep Phase 2 unauthorized. Keep exit gate CLOSED; coordinator reviews verification and obtains explicit owner exit approval. See `docs/verification/phase-1-report.md` for commands/output and limitations.
 Delegation model tier: Tier 2 normal implementation, workhorse/medium reasoning; no subagents used.
