@@ -31,10 +31,16 @@ The JPEG itself ends at the lower section; no unseen content is inferred. PNG wa
 main is currently unprotected. CODEOWNERS/owner-review policy must be added, but a text policy does not substitute for enforced branch protection. Required protection: PR review and passing checks, no force pushes/deletions, least privilege. If plan/permissions prevent enforcement, record BLOCKED and ask owner; do not enable a paid tier or waive the deliverable.
 
 ## D008 — Owner confirmations
-2026-10-05 owner confirmed public repository visibility, branch protection on `main`, and a GitHub Actions budget/overage limit of $0. These supersede D002's private-development assumption and D004's unverified Actions-control note. No paid services, premium data, deployment, or overage spending is approved.
+2026-10-05 owner confirmed public repository visibility, branch protection on main, and a GitHub Actions budget/overage limit of $0. These supersede D002's private-development assumption and D004's unverified Actions-control note. No paid services, premium data, deployment, or overage spending is approved.
 
 ## D009 — Verification execution context
 The owner works through cloud/web tools and does not plan to push from a laptop. Clean-clone and full-history scanning are reproducibility and security tests, not a local-workflow requirement. They are run by a cloud implementation environment against this public repository.
 
 ## D010 — Source-baseline correction
-2026-10-05 P0-T04 exposed incorrect SHA-256 values in `registry/source-baseline.json`. The PRD and build-spec files were unchanged; their stored hashes were corrected to match the committed source files. Cross-document validation subsequently passed.
+2026-10-05 P0-T04 exposed incorrect SHA-256 values in registry/source-baseline.json. The PRD and build-spec files were unchanged; their stored hashes were corrected to match the committed source files. Cross-document validation subsequently passed.
+
+## D011 — P0-T05 handoff remediation
+2026-10-06 a fresh-agent, repository-only reconstruction detected stale/conflicting coordination records. The Phase 0 gate correctly remained closed, but the active task and CI/P0-T05 status were not unambiguous. P0-FIX-002 reconciles the authoritative coordination artifacts, records the successful PR #4 CI/required-check evidence, and requires a final independent P0-T05 pass before owner exit approval.
+
+## D012 — Final P0-T05 reconstruction pass
+2026-10-06 a second fresh agent inspected only the reconciled GitHub branch and unambiguously reconstructed Phase 0, P0-FIX-002, all applicable IDs, prior verification and the remaining exit conditions. P0-T05 now passes; the remaining controls are this PR's required CI/merge and the owner's explicit Phase 0 exit approval.
