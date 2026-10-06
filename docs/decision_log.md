@@ -53,3 +53,6 @@ The owner works through cloud/web tools and does not plan to push from a laptop.
 
 ## D015 — Phase 2 authorization
 2026-10-06 owner authorized Phase 2: provenance, calculations and methodology foundation. Scope is limited to P2-FOUNDATION-001 and P2-T01–P2-T05. No live collectors, paid services, accounts, credentials, deployment or unapproved methodology changes are authorized.
+
+## D016 — Pull request authority
+2026-10-06 owner approved the following standing workflow rules: ChatGPT may create pull requests for review; ChatGPT must not merge a pull request without explicit owner approval in the current conversation; after an approved merge, ChatGPT must add the exact PR comment `merged by ChatGPT.`
