@@ -40,11 +40,12 @@ def main() -> None:
         page.goto(args.base_url)
         wait_ready(page)
 
-        panels = page.locator("text=/^V[1-7] —/")
-        assert panels.count() == 7, f"expected 7 panels, found {panels.count()}"
+        dashboard_text = page.locator("body").inner_text()
+        for panel_id in range(1, 8):
+            assert f"V{panel_id} —" in dashboard_text, f"missing V{panel_id} panel"
         assert page.get_by_text("Energy", exact=False).count() >= 1
         assert page.get_by_text("Labor", exact=False).count() >= 1
-        dashboard_text = page.locator("body").inner_text().upper()
+        dashboard_text = dashboard_text.upper()
         assert "STALE" in dashboard_text
         assert "UNAVAILABLE" in dashboard_text
         assert page.get_by_text("How this is calculated", exact=True).count() == 7
