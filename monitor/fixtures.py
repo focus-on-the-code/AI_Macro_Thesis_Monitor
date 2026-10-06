@@ -23,6 +23,8 @@ class Metric:
     status: str = "FIXTURE"
     last_success: str = OBSERVED
     reason: str = ""
+    raw_input_ids: tuple[str, ...] = ()
+    vintage_state: str = "NOT_APPLICABLE_FIXTURE"
 
 
 @dataclass(frozen=True)

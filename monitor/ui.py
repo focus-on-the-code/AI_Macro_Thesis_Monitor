@@ -1,6 +1,7 @@
 """Phase 1 Streamlit views backed exclusively by illustrative local fixtures."""
 
 from monitor.fixtures import OBSERVED, RETRIEVED, PANELS, REGIME, Panel, formula_inventory
+from monitor.phase2 import metric_registry, quality_for
 
 
 DISCLAIMER = (
@@ -30,6 +31,8 @@ def render_regime(st) -> None:
 def render_panel(st, panel: Panel, inventory: dict[str, dict]) -> None:
     metric = panel.metric
     definition = inventory[metric.formula_id]
+    registered = metric_registry()[metric.formula_id]
+    quality = quality_for(metric.status, metric.reason)
     with st.container(border=True):
         st.subheader(f"{panel.id} — {panel.name}")
         st.caption(panel.question)
@@ -38,7 +41,7 @@ def render_panel(st, panel: Panel, inventory: dict[str, dict]) -> None:
         st.metric(metric.name, metric.value if metric.value is not None else "Unavailable",
                   metric.change if metric.value is not None else None, delta_color="off")
         st.caption(f"Unit: {metric.unit} • observed: {OBSERVED if metric.value is not None else 'missing'} • "
-                   f"retrieved: {RETRIEVED} • {metric.status}")
+                   f"retrieved: {RETRIEVED} • {', '.join(quality.flags) or quality.status}")
 
         st.info("Chart placeholder — no historical observations are connected in Phase 1. "
                 "The future chart will preserve the source frequency and provenance.")
@@ -55,15 +58,20 @@ def render_panel(st, panel: Panel, inventory: dict[str, dict]) -> None:
         with st.expander("How this is calculated", expanded=False):
             st.write(f"**{metric.name}** ({metric.formula_id})")
             st.write(f"Definition / formula: {definition['definition']}")
+            st.write(f"Registry ID: {registered['metric_id']} • type: {registered['kind']}")
+            if registered["formula"]:
+                st.write(f"Calculation: {registered['formula']}")
             st.write(f"Fixture raw inputs / example: {metric.raw_inputs}")
+            input_ids = metric.raw_input_ids or (f"{metric.formula_id}:fixture-input",)
+            st.write(f"Lineage input IDs: {', '.join(input_ids)}")
             st.write(f"Unit: {metric.unit}")
             st.write(f"Source: {metric.source}")
             if metric.source_url:
                 st.write(f"Source directory: {metric.source_url}")
             st.write(f"Observation date: {OBSERVED if metric.value is not None else 'missing'}")
             st.write(f"Fixture retrieval date: {RETRIEVED}; last successful update: {metric.last_success}")
-            st.write(f"Status: {metric.status}; revision/vintage: not applicable to fictional fixture. "
-                     f"Proposed cadence: {metric.cadence}.")
+            st.write(f"Status: {quality.status}; revision/vintage: {metric.vintage_state}. "
+                     f"Source priority: {', '.join(registered['source_priority'])}. Cadence: {registered['cadence']}.")
             st.write("Limitation: this example is not an implemented live calculation; "
                      "source mapping and vintage policy remain TBD for later phases.")
             if metric.reason:
@@ -130,16 +138,20 @@ def methodology(st) -> None:
     st.subheader("Abbreviations")
     st.table([{"Abbreviation": key, "Meaning": value} for key, value in ABBREVIATIONS.items()])
     st.subheader("Metric registry")
-    st.caption("The same frozen v0.91 formula inventory drives Dashboard disclosures and this page. "
-               "Implementation parameters marked TBD have not been silently frozen.")
+    st.caption("Dashboard disclosures and this page use the same canonical metric registry. "
+               "No live collectors or paid services are connected.")
     inventory = formula_inventory()
+    registry = metric_registry()
     for panel in PANELS:
         with st.expander(f"{panel.id} — {panel.name}"):
             for item in inventory.values():
                 if item["panel_id"] == panel.id:
-                    st.write(f"**{item['metric']} ({item['formula_id']})** — {item['definition']}")
+                    row = registry[item["formula_id"]]
+                    kind = "formula: " + (row["formula"] or "raw metric")
+                    st.write(f"**{row['name']} ({row['metric_id']})** — {row['definition']} "
+                             f"Unit: {row['unit']}; {kind}; source: {'; '.join(row['source_priority'])}; "
+                             f"cadence: {row['cadence']}.")
             st.write(f"Panel proxies: {', '.join(panel.tickers)}. Market confirmation, not causal proof.")
-            st.write(f"Fixture source family: {panel.metric.source}; proposed cadence: {panel.metric.cadence}.")
             if panel.metric.source_url:
                 st.write(f"Source/API directory: {panel.metric.source_url}")
     st.subheader("Policy and limitations")
