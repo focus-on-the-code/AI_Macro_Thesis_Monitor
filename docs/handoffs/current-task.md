@@ -1,18 +1,18 @@
-# P1-UI-001 — Fixture-backed Streamlit dashboard shell
-Status: IMPLEMENTED, VISUAL VERIFICATION PENDING. Phase 1 only; do not begin Phase 2.
+# Phase 1 closeout — P1-UI-001
+Status: COMPLETE; Phase 1 exit gate PASSED. Phase 2 is not authorized.
 
-## Objective and scope
-Recreate the approved dashboard hierarchy using local fixtures: Dashboard, Evidence, About and Definitions & Methodology; Current Market & Macro Regime; seven independent V1–V7 panels with internal ticker/proxy rows, chart placeholders, interpretation, source/timing and calculation disclosure. No live data, deployment, accounts, paid services, credentials, investment recommendations, master scores or methodology changes.
+## Completed objective
+P1-UI-001 delivered the fixture-backed Streamlit dashboard shell: Dashboard, Evidence, About, and Definitions & Methodology; Current Market & Macro Regime; seven independent V1–V7 panels with ticker/proxy rows, chart placeholders, interpretation, source/timing and calculation disclosures; and stale/unavailable states.
 
-Requirements: FR-001, FR-002, FR-003, FR-004, FR-005, FR-008, FR-009, FR-010, FR-011, FR-014, FR-015, FR-021, FR-022, FR-023.
-Tests: P1-T01 Navigation; P1-T02 Panel inventory; P1-T03 Ticker proximity; P1-T04 Disclosures; P1-T05 Responsive smoke; P1-T06 Stale/unavailable state.
+Requirements completed: FR-001, FR-002, FR-003, FR-004, FR-005, FR-008, FR-009, FR-010, FR-011, FR-014, FR-015, FR-021, FR-022, FR-023.
+Tests completed: P1-T01 Navigation; P1-T02 Panel inventory; P1-T03 Ticker proximity; P1-T04 Disclosures; P1-T05 Responsive smoke; P1-T06 Stale/unavailable state.
 
-## Implementation handoff
-Branch: `codex/phase-1-ui-skeleton`. Implementation commit: `9178775918a6181493aeb03b85a911a8c40c0861`.
-Files: `app.py`, `pages/`, `monitor/fixtures.py`, `monitor/ui.py`, `tests/test_phase1_ui.py`, `requirements.txt`, `README.md`, and this handoff/status/report.
-Run: `python -m pip install -r requirements.txt && python -m streamlit run app.py` from the repository root in a Python 3.12 environment.
-Local `python -m unittest discover -s tests -v`: 7 tests, OK. Structural checks cover six P1 IDs, but rendered browser checks remain incomplete. Package installation failed because network access to the configured proxy was denied; the available Ruff binary exited 139. No live accounts or services were used.
+## Implementation and evidence
+PR #6 merged to `main` at merge commit `7fe81a6618bf8e8fe1a58f67a97d282c0a6acbe9`; implementation commit `9178775918a6181493aeb03b85a911a8c40c0861`.
+Hosted browser QA passed on Actions run 37445064980 (run #10), including all four routes, seven panels/disclosures, stale/unavailable states, and desktop/tablet/mobile overflow checks. Artifact 11402518825 contains screenshots and logs.
+Local structural tests passed. Local Streamlit installation was blocked by the configured proxy, and local Ruff exited 139; hosted browser verification is the authoritative rendering evidence.
 
-## Next expected action and blockers
-Hosted browser QA passed: P1-T01, P1-T03, P1-T04 and P1-T05 are verified by run #10; P1-T02 and P1-T06 are covered by structural and rendered checks. Coordinator now reviews the report and obtains explicit owner approval; keep Phase 2 unauthorized. Keep exit gate CLOSED; coordinator reviews verification and obtains explicit owner exit approval. See `docs/verification/phase-1-report.md` for commands/output and limitations.
-Delegation model tier: Tier 2 normal implementation, workhorse/medium reasoning; no subagents used.
+## Constraints and next action
+Fixture-only. No live data, deployment, accounts, paid services, credentials, investment recommendations, master scores or methodology changes.
+Next action: wait for a separate owner request authorizing Phase 2 and a new scoped task handoff. Do not begin Phase 2 from this file alone.
+Delegation model tier used: Tier 2 normal implementation, workhorse/medium reasoning; no subagents used.
