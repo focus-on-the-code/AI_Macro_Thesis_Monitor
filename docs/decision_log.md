@@ -41,3 +41,6 @@ The owner works through cloud/web tools and does not plan to push from a laptop.
 
 ## D011 — P0-T05 handoff remediation
 2026-10-06 a fresh-agent, repository-only reconstruction detected stale/conflicting coordination records. The Phase 0 gate correctly remained closed, but the active task and CI/P0-T05 status were not unambiguous. P0-FIX-002 reconciles the authoritative coordination artifacts, records the successful PR #4 CI/required-check evidence, and requires a final independent P0-T05 pass before owner exit approval.
+
+## D012 — Final P0-T05 reconstruction pass
+2026-10-06 a second fresh agent inspected only the reconciled GitHub branch and unambiguously reconstructed Phase 0, P0-FIX-002, all applicable IDs, prior verification and the remaining exit conditions. P0-T05 now passes; the remaining controls are this PR's required CI/merge and the owner's explicit Phase 0 exit approval.
